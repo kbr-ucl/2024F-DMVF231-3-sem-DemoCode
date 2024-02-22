@@ -17,7 +17,7 @@ db.SaveChanges();
 // Read
 Console.WriteLine("Querying for a blog");
 var blog = db.Blogs
-    .OrderBy(b => b.BlogId)
+    .OrderBy(b => b.Id)
     .First();
 
 // Update
