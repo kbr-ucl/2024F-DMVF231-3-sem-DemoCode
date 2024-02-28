@@ -1,4 +1,4 @@
-﻿# EntityFrameworkConcurrency01 - Follow me agenda
+# EntityFrameworkConcurrency01 - Follow me agenda
 
 
 
