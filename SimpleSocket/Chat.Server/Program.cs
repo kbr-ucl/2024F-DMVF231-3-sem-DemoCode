@@ -2,6 +2,7 @@
 
 using System.Net;
 using System.Net.Sockets;
+using System.Text;
 
 Console.WriteLine("Hello, World!");
 var server = new Server();
@@ -35,24 +36,21 @@ internal class Server
             var socket = listener.Accept();
             var client = new ClientHandler(socket, this);
             clients.Add(client);
-            var clientThread = new Thread(client.StartClient);
+            var clientThread = new Thread(client.StartReceive);
             clientThread.Start();
         }
     }
 
     public void Broadcast(string message)
     {
-        foreach (var client in clients)
-        {
-                client.Send(message);
-        }
+        foreach (var client in clients) client.Send(message);
     }
 }
 
 internal class ClientHandler
 {
-    private Socket socket;
-    private Server server;
+    private readonly Server server;
+    private readonly Socket socket;
 
     public ClientHandler(Socket socket, Server server)
     {
@@ -62,15 +60,40 @@ internal class ClientHandler
 
     internal void Send(string message)
     {
-        throw new NotImplementedException();
+        var msg = Encoding.ASCII.GetBytes(message);
+        socket.Send(msg);
     }
 
-    internal void StartClient(object? obj)
+    internal void StartReceive()
     {
-        while (true)
-        {
-            string message = "";
-            server.Broadcast(message);
-        }
+        while (socket.Connected)
+            try
+            {
+                // Incoming data from the client.
+                var data = "";
+                while (true)
+                {
+                    var bytes = new byte[1024];
+                    var bytesRec = socket.Receive(bytes);
+                    data += Encoding.ASCII.GetString(bytes, 0, bytesRec);
+                    if (data.IndexOf("<EOF>") > -1) break;
+                }
+                Console.WriteLine("Text received : {0}", data);
+                server.Broadcast(data);
+            }
+            catch (Exception e)
+            {
+                try
+                {
+                    server.clients.Remove(this);
+                    socket.Shutdown(SocketShutdown.Both);
+                    socket.Close();
+                }
+                catch(Exception ee)
+                {
+                    Console.WriteLine(ee);
+                }
+                Console.WriteLine(e);
+            }
     }
 }
