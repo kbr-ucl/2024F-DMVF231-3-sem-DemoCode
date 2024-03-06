@@ -11,7 +11,7 @@ serverThread.Start();
 
 internal class Server
 {
-    public List<ClientHandler> clients;
+    public List<ClientHandler> Clients { get; } = new();
 
     public void StartServer()
     {
@@ -35,7 +35,7 @@ internal class Server
         {
             var socket = listener.Accept();
             var client = new ClientHandler(socket, this);
-            clients.Add(client);
+            Clients.Add(client);
             var clientThread = new Thread(client.StartReceive);
             clientThread.Start();
         }
@@ -43,30 +43,30 @@ internal class Server
 
     public void Broadcast(string message)
     {
-        foreach (var client in clients) client.Send(message);
+        foreach (var client in Clients) client.Send(message);
     }
 }
 
 internal class ClientHandler
 {
-    private readonly Server server;
-    private readonly Socket socket;
+    private readonly Server _server;
+    private readonly Socket _socket;
 
     public ClientHandler(Socket socket, Server server)
     {
-        this.socket = socket;
-        this.server = server;
+        _socket = socket;
+        _server = server;
     }
 
     internal void Send(string message)
     {
         var msg = Encoding.ASCII.GetBytes(message);
-        socket.Send(msg);
+        _socket.Send(msg);
     }
 
     internal void StartReceive()
     {
-        while (socket.Connected)
+        while (_socket.Connected)
             try
             {
                 // Incoming data from the client.
@@ -74,25 +74,27 @@ internal class ClientHandler
                 while (true)
                 {
                     var bytes = new byte[1024];
-                    var bytesRec = socket.Receive(bytes);
+                    var bytesRec = _socket.Receive(bytes);
                     data += Encoding.ASCII.GetString(bytes, 0, bytesRec);
-                    if (data.IndexOf("<EOF>") > -1) break;
+                    if (data.IndexOf("<EOF>", StringComparison.OrdinalIgnoreCase) > -1) break;
                 }
+
                 Console.WriteLine("Text received : {0}", data);
-                server.Broadcast(data);
+                _server.Broadcast(data);
             }
             catch (Exception e)
             {
                 try
                 {
-                    server.clients.Remove(this);
-                    socket.Shutdown(SocketShutdown.Both);
-                    socket.Close();
+                    _server.Clients.Remove(this);
+                    _socket.Shutdown(SocketShutdown.Both);
+                    _socket.Close();
                 }
-                catch(Exception ee)
+                catch (Exception ee)
                 {
                     Console.WriteLine(ee);
                 }
+
                 Console.WriteLine(e);
             }
     }
