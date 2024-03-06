@@ -4,7 +4,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 
-Console.WriteLine("Hello, World!");
+Console.WriteLine("Char server stated");
 var server = new Server();
 var serverThread = new Thread(server.StartServer);
 serverThread.Start();
