@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkDemo01", "En
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiHelloWorld", "ApiHelloWorld\ApiHelloWorld.csproj", "{CC6EB08C-2C67-4DDC-B1FC-48C109DBC80A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkConcurrency01", "EntityFrameworkConcurrency01\EntityFrameworkConcurrency01.csproj", "{CBC9D2F5-A90E-4941-A104-E32AE4F768AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkConcurrency01", "EntityFrameworkConcurrency01\EntityFrameworkConcurrency01.csproj", "{CBC9D2F5-A90E-4941-A104-E32AE4F768AF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SimpleSocket", "SimpleSocket", "{5687E105-0BDF-466F-AA4B-E03DD4EB2407}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
