@@ -1,3 +1,4 @@
+using EntityFrameworkConcurrency01;
 using EntityFrameworkConcurrency01.Database;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,6 +15,8 @@ builder.Services.AddSwaggerGen();
 // Update-Database
 builder.Services.AddDbContext<BloggingContext>(opt =>
     opt.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection")));
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 
