@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RestApiDemo.DTOs;
 using RestApiDemo.Model;
-using static System.Reflection.Metadata.BlobBuilder;
 
 namespace RestApiDemo.Controllers;
 
@@ -60,10 +59,7 @@ public class BooksController : ControllerBase
                 Author = b.Author.Name
             }).FirstOrDefaultAsync();
 
-        if (book == null)
-        {
-            return NotFound();
-        }
+        if (book == null) return NotFound();
         return Ok(book);
     }
 
@@ -91,5 +87,4 @@ public class BooksController : ControllerBase
             .Where(b => b.PublishDate >= pubdate.Date && b.PublishDate < pubdate.Date.AddDays(1))
             .Select(AsBookDto).ToListAsync();
     }
-
 }
