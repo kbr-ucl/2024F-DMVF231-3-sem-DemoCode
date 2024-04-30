@@ -1,0 +1,12 @@
+version: 1
+common:
+  resourcesPath: ./myComponents/
+apps:
+  - appID: helloworldpublish
+    appDirPath: ./HelloWorld.Publish/
+    appPort: 5243
+    command: ["dotnet", "run"]
+  - appID: helloworldsubscribe
+    appDirPath: ./HelloWorld.Subscribe/
+    appPort: 5181
+    command: ["dotnet", "run"]

@@ -1,0 +1,14 @@
+@HelloWorld.Publish_HostAddress = http://localhost:5243
+POST {{HelloWorld.Publish_HostAddress}}/PublishHello/
+accept: */*
+Content-Type: application/json
+
+{
+  "message": "Hello!"
+}
+###
+
+GET {{HelloWorld.Publish_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

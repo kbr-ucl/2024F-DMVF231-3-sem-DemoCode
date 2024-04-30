@@ -1,0 +1,6 @@
+@HelloWorls.Subscribe_HostAddress = http://localhost:5181
+
+GET {{HelloWorls.Subscribe_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
