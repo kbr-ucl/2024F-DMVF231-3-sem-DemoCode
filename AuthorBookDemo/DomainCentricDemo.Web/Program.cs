@@ -73,7 +73,7 @@ builder.Services.AddScoped<IAuthorizationHandler, IsSoleAuthorOrAdminHandler>();
 
 // https://docs.automapper.org/en/stable/Getting-started.html
 // https://stackoverflow.com/questions/71216149/how-to-setup-automapper-in-asp-net-core-6
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies(), ServiceLifetime.Scoped);
 
 var app = builder.Build();
 
