@@ -4,9 +4,9 @@
       "commandName": "DockerCompose",
       "commandVersion": "1.0",
       "serviceActions": {
-        "bookdemo.web": "StartDebugging",
         "weatherdemo.api": "StartDebugging",
-        "bookdemo.api": "StartDebugging"
+        "domaincentricdemo.web": "StartDebugging",
+        "domaincentricdemo.api": "StartDebugging"
       }
     }
   }

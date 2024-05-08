@@ -1,0 +1,46 @@
+version: '3.4'
+
+services:
+  domaincentricdemo.web:
+    environment:
+      "ASPNETCORE_ENVIRONMENT": "Development"
+      "ASPNETCORE_HTTP_PORTS" : "8080"
+      "ASPNETCORE_HTTPS_PORTS": "8081"
+      "ConnectionStrings:DefaultConnection": "Server=host.docker.internal;Database=BookDbUsers;User Id=docker; Password=docker1234;Trusted_Connection=False;MultipleActiveResultSets=true; TrustServerCertificate=true"
+      "BackendBaseUri": "http://domaincentricdemo.api/"
+      "WetherBaseUri": "http://weatherdemo.api/"
+    ports:
+      - "30000:8080"
+      - "30001:8081"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+    depends_on:
+      - domaincentricdemo.api
+      - weatherdemo.api 
+
+  domaincentricdemo.api:
+    environment:
+      "ASPNETCORE_ENVIRONMENT": "Development"
+      "ASPNETCORE_HTTP_PORTS" : "8080"
+      "ASPNETCORE_HTTPS_PORTS": "8081"
+      "ConnectionStrings:BookConnectionString": "Server=host.docker.internal;Database=BookDb;User Id=docker; Password=docker1234;Trusted_Connection=False;MultipleActiveResultSets=true;TrustServerCertificate=true"
+
+    ports:
+      - "31000:8080"
+      - "31001:8082"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+
+  weatherdemo.api:
+    ports:
+      - "32000:8080"
+    image: ${DOCKER_REGISTRY-}weatherdemoapi
+    build:
+      context: .
+      dockerfile: DemoApi/Dockerfile
+    environment:    
+      "ASPNETCORE_ENVIRONMENT": "Development"
+      "ASPNETCORE_HTTP_PORTS" : "8080"
+      "ASPNETCORE_HTTPS_PORTS": "8081"

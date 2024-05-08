@@ -24,36 +24,57 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Docker-create-user.sql = Docker-create-user.sql
 	EndProjectSection
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{1BF8F4C7-691C-45E8-8D52-09D685F1879C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		NoVariablesDefault|Any CPU = NoVariablesDefault|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C7A00A2F-C83F-426D-874D-1B9C0C9DD4FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C7A00A2F-C83F-426D-874D-1B9C0C9DD4FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7A00A2F-C83F-426D-874D-1B9C0C9DD4FA}.NoVariablesDefault|Any CPU.ActiveCfg = Release|Any CPU
+		{C7A00A2F-C83F-426D-874D-1B9C0C9DD4FA}.NoVariablesDefault|Any CPU.Build.0 = Release|Any CPU
 		{C7A00A2F-C83F-426D-874D-1B9C0C9DD4FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7A00A2F-C83F-426D-874D-1B9C0C9DD4FA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B9F1965F-81E8-44B7-B6C5-4EB010CCB241}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B9F1965F-81E8-44B7-B6C5-4EB010CCB241}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9F1965F-81E8-44B7-B6C5-4EB010CCB241}.NoVariablesDefault|Any CPU.ActiveCfg = Release|Any CPU
+		{B9F1965F-81E8-44B7-B6C5-4EB010CCB241}.NoVariablesDefault|Any CPU.Build.0 = Release|Any CPU
 		{B9F1965F-81E8-44B7-B6C5-4EB010CCB241}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9F1965F-81E8-44B7-B6C5-4EB010CCB241}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CB2A02CA-3A7E-4E7B-A6DB-FA68245F6BEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CB2A02CA-3A7E-4E7B-A6DB-FA68245F6BEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB2A02CA-3A7E-4E7B-A6DB-FA68245F6BEE}.NoVariablesDefault|Any CPU.ActiveCfg = Release|Any CPU
+		{CB2A02CA-3A7E-4E7B-A6DB-FA68245F6BEE}.NoVariablesDefault|Any CPU.Build.0 = Release|Any CPU
 		{CB2A02CA-3A7E-4E7B-A6DB-FA68245F6BEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB2A02CA-3A7E-4E7B-A6DB-FA68245F6BEE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8E9C6E3F-1DC9-46B6-8F45-3983E4B2488D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8E9C6E3F-1DC9-46B6-8F45-3983E4B2488D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E9C6E3F-1DC9-46B6-8F45-3983E4B2488D}.NoVariablesDefault|Any CPU.ActiveCfg = Release|Any CPU
+		{8E9C6E3F-1DC9-46B6-8F45-3983E4B2488D}.NoVariablesDefault|Any CPU.Build.0 = Release|Any CPU
 		{8E9C6E3F-1DC9-46B6-8F45-3983E4B2488D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E9C6E3F-1DC9-46B6-8F45-3983E4B2488D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{35A8F8F8-1B15-4ED2-A71B-5EF02562555A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{35A8F8F8-1B15-4ED2-A71B-5EF02562555A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35A8F8F8-1B15-4ED2-A71B-5EF02562555A}.NoVariablesDefault|Any CPU.ActiveCfg = Release|Any CPU
+		{35A8F8F8-1B15-4ED2-A71B-5EF02562555A}.NoVariablesDefault|Any CPU.Build.0 = Release|Any CPU
 		{35A8F8F8-1B15-4ED2-A71B-5EF02562555A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35A8F8F8-1B15-4ED2-A71B-5EF02562555A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F3777217-0456-439B-AAC4-6E3E715BE149}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F3777217-0456-439B-AAC4-6E3E715BE149}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3777217-0456-439B-AAC4-6E3E715BE149}.NoVariablesDefault|Any CPU.ActiveCfg = Release|Any CPU
+		{F3777217-0456-439B-AAC4-6E3E715BE149}.NoVariablesDefault|Any CPU.Build.0 = Release|Any CPU
 		{F3777217-0456-439B-AAC4-6E3E715BE149}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3777217-0456-439B-AAC4-6E3E715BE149}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BF8F4C7-691C-45E8-8D52-09D685F1879C}.Debug|Any CPU.ActiveCfg = NoVariablesDefault
+		{1BF8F4C7-691C-45E8-8D52-09D685F1879C}.Debug|Any CPU.Build.0 = NoVariablesDefault
+		{1BF8F4C7-691C-45E8-8D52-09D685F1879C}.NoVariablesDefault|Any CPU.ActiveCfg = NoVariablesDefault
+		{1BF8F4C7-691C-45E8-8D52-09D685F1879C}.NoVariablesDefault|Any CPU.Build.0 = NoVariablesDefault
+		{1BF8F4C7-691C-45E8-8D52-09D685F1879C}.Release|Any CPU.ActiveCfg = NoVariablesDefault
+		{1BF8F4C7-691C-45E8-8D52-09D685F1879C}.Release|Any CPU.Build.0 = NoVariablesDefault
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

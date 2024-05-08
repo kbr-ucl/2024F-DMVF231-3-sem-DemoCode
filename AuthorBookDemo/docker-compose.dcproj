@@ -4,12 +4,15 @@
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
     <DockerPublishLocally>False</DockerPublishLocally>
-    <ProjectGuid>3f3f4184-d716-4480-b067-17501ad64429</ProjectGuid>
-    <DockerLaunchAction>None</DockerLaunchAction>
+    <ProjectGuid>1bf8f4c7-691c-45e8-8d52-09d685f1879c</ProjectGuid>
+    <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}</DockerServiceUrl>
-    <DockerServiceName>bookdemo.web</DockerServiceName>
+    <DockerServiceName>domaincentricdemo.web</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="docker-compose.override.yml">
+      <DependentUpon>docker-compose.yml</DependentUpon>
+    </None>
     <None Include="docker-compose.yml" />
     <None Include=".dockerignore" />
   </ItemGroup>
